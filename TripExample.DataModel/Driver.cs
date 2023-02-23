@@ -15,11 +15,11 @@ namespace TripExample.DataModel
 
         public TimeSpan TotalExpirience(DateTime actualMoment) => 
             actualMoment.Subtract(StartDate).Add(StartingExpirience);
-        public virtual ICollection<Trip>? Trips { get; set; }
+//        public virtual ICollection<Trip>? Trips { get; set; }
 
         public Driver()
         {
-            Trips = new HashSet<Trip>();
+//            Trips = new HashSet<Trip>();
         }
     }
 }

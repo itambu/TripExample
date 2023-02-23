@@ -31,7 +31,16 @@ namespace TripExample.BL
 
         public void Remove(int driverId) 
         {
-            var temp = _repository!.Get(d => d.Id == driverId).First();
+            var temp = _repository!.Get().OrderBy(x=>x.StartDate)  Where(d => d.Id == driverId).FirstOrDefault();
+            if (temp is not null)
+            {
+
+            }
+            else 
+            {
+                throw new InvalidOperationException();
+            }
+
             if (temp!.Trips!.Count() > 0)
             {
                 throw new InvalidOperationException("Driver has provided some trips");
